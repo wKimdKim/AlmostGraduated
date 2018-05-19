@@ -18,11 +18,11 @@ function myMap() {
         map: map
       });
     }
-    console.log(marker.position.lng());
+    // console.log(marker.position.lng());
     // marker = new google.maps.Marker()
     // marker.setPosition(e.latLng);
-    // latitude = marker.position.lat();
-    // longitude = marker.position.lng();
+    latitude = marker.position.lat();
+    longitude = marker.position.lng();
     // // console.log(long)
     // placeMarkerAndPanTo(marker.getPosition(), map);
     // google.maps.event.clearListeners(map, 'click');
