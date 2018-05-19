@@ -38,5 +38,24 @@ class db:
 
 		self.cursor.execute("INSERT INTO Event VALUES(?,?,?)",(id,users,study_area))
 		self.conn.commit()
-		
 
+	def event_lookup(self, id):
+		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
+	
+
+	def close(self):
+		self.cursor.close()
+		self.conn.close() 
+
+
+# b = d.event_lookup
+
+# print(b(1))
+# data = d.get_all_events()
+# d.close()
+
+# for i in range(len(data)):
+# 	print(data[i][0][3])
+# 	for j in data[i]:
+# 		#print(j[0])
+# 		pass

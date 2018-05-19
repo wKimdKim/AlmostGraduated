@@ -55,7 +55,9 @@ header .container-fluid {
 .areaInput {
     margin-bottom: 8px;
 }
-
+.datetimeInput {
+    margin-bottom: 8px;
+}
 /*Google map*/
 #map {
     height: 100vh;
@@ -64,8 +66,8 @@ header .container-fluid {
 }
 
 /*Forms*/
-#forms {
-    float: left;
+#forms{
+  float: left;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);
@@ -81,9 +83,6 @@ header .container-fluid {
     font-family: 'Roboto', 'sans-serif';
 }
 
-body {
-    background: #FFFFFF;
-}
 
 ul {
     list-style: none;
