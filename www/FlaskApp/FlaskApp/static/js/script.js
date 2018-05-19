@@ -48,11 +48,17 @@ function myMap() {
 
 function Create_event() {
   var Name = $("#name").val();
-  var Area = $("#area").val();
+  console.log(Name);
+  var Area = $("#exampleFormControlSelect1").val();
+  console.log(Area);
   var DateTime = $("#datetime-local").val();
   console.log(DateTime);
   var lat = latitude;
   var long = longitude;
+  console.log(lat);
+  console.log(long);
+  console.log(longitude);
+  console.log(latitude);
 
   $.ajax({
     url: '/add/event',
