@@ -40,19 +40,3 @@ class db:
 		self.conn.commit()
 		
 
-
-
-db = db('StudyGroups.db')
-data = db.get_all_events()
-
-dates = {}
-
-
-#print(data[4][3])
-
-
-
-
-for i in new_data:
-	print(i)
-	print()
