@@ -1,13 +1,14 @@
+var marker;
 function myMap() {
   var mapProp= {
       center:new google.maps.LatLng(-36.852701,174.7699),
       zoom:18,
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
-  map.addListener('click', function(e) {
+  var mapListener = map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
+    google.maps.event.clearListeners(map, 'click');
   });
-  google.maps.event.clearListener(map);
 }
 
 
