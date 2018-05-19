@@ -20,6 +20,20 @@ def index():
     except Exception as e:
         print(str(e))
 
+@app.route('/test')
+def test():
+    try:
+        db = database.db('StudyGroups.db')
+        lookup = db.event_lookup
+        Events = db.get_all_events()
+        Length = len(Events)
+        return render_template('Flask_template.html',lenght=Length, Events=Events, lookup=lookup)
+    except Exception as e:
+        print(str(e))
+    finally:
+        db.close()
+
+
 @app.route('/events')
 def events():
     try:
@@ -48,4 +62,4 @@ def js_static(filename):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5000)
