@@ -15,13 +15,22 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
-        return render_template('index.html')
+        return render_template('index.html',Event_Name='EVENT NAME HERE')
     except Exception as e:
         print(str(e))
 
-@app.route('/dbquery/events', methods=['POST'])
+#@app.route('/dbquery/events', methods=['POST'])
 
-#@app.route('')
+@app.route('/add/event', methods=['POST'])
+def addevent():
+    name = request.json['Name']
+    area = request.json['Area']
+    print(request)
+    print('name is', name)
+    print('area is', area)
+    print('Finished')
+    return 'This ksjbfkajbsnklajnlsdknalk'
+
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
