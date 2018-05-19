@@ -15,13 +15,15 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
-        return render_template('index.html')
+        return render_template('index.html',Event_Name='EVENT NAME HERE')
     except Exception as e:
         print(str(e))
 
 @app.route('/dbquery/events', methods=['POST'])
 
-#@app.route('')
+@app.route('/add/event')
+def addevent():
+    
 
 @app.route('/css/<path:filename>')
 def css_static(filename):

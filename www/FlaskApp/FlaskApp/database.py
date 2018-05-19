@@ -17,6 +17,17 @@ class db:
 	def get_all_events(self):
 		pass
 
+	def add_event(self,users,study_area):
+		try:
+			id = self.cursor.execute("SELECT rowid FROM Event ORDER BY rowid DESC").fetchone()[0]+1
+		except TypeError:
+			id = 0
+
+		self.cursor.execute("INSERT INTO Event VALUES(?,?,?)",(id,users,study_area))
+		self.conn.commit()
+		
+
 db = db('StudyGroups.db')
 
 db.get_user(1)
+db.add_event('[1,2,3]',5)
