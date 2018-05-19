@@ -49,6 +49,9 @@ class db:
 
 	def event_lookup(self, id):
 		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
+
+	def location_query(self, id):
+		return self.cursor.execute("SELECT Name, Longitude, Latitude FROM StudyArea WHERE ID=?",(id,)).fetchone()
 	
 
 	def close(self):
@@ -57,7 +60,7 @@ class db:
 
 
 # d = db('StudyGroups.db')
-
+# print(d.location_query(1))
 # data = d.get_all_events()
 # d.close()
 
