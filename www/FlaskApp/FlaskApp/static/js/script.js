@@ -9,12 +9,8 @@ function myMap() {
 
 
 function Create_event() {
-	
 	var Name = $("#name").val();
 	var Area = $("#area").val();
-	console.log(Name)
-	console.log(Area)
-	console.log("HERE")
 	$.ajax({
 		url: '/add/event',
 		contentType: 'application/json',
