@@ -26,7 +26,7 @@ def index():
     finally:
         db.close()
 
-#@app.route('/event/query', methods=['POST'])
+@app.route('/event/query', methods=['POST'])
 
 
 @app.route('/add/event', methods=['POST'])
