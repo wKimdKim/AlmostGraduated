@@ -1,5 +1,5 @@
-var lat;
-var long;
+var latitude;
+var longitude;
 
 function myMap() {
   var mapProp= {
@@ -10,8 +10,8 @@ function myMap() {
   var mapListener = map.addListener('click', function(e) {
     var marker = new google.maps.Marker()
     marker.setPosition(e.latLng);
-    lat = marker.position.lat();
-    long = marker.position.lng();
+    latitude = marker.position.lat();
+    longitude = marker.position.lng();
     // console.log(long)
     placeMarkerAndPanTo(marker.getPosition(), map);
     google.maps.event.clearListeners(map, 'click');
@@ -31,12 +31,14 @@ function placeMarkerAndPanTo(latLng, map) {
 function Create_event() {
 	var Name = $("#name").val();
 	var Area = $("#area").val();
+  var lat = latitude;
+  var long = longitude;
 
 	$.ajax({
 		url: '/add/event',
 		contentType: 'application/json',
 		type: 'POST',
-		data: JSON.stringify({'Name':Name,'Area':Area, 'Latitude': Latitude, 'Longitude': Longitude}),
+		data: JSON.stringify({'Name':Name,'Area':Area, 'Latitude': lat, 'Longitude': long}),
 		success: function(response){
 			alert(response)
 			},
