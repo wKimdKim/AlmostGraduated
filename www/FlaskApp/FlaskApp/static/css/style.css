@@ -25,6 +25,11 @@ header .container-fluid {
 }
 
 /*Panel*/
+.card{
+  position: relative;
+  top: 0;
+  width: 25vw;
+}
 .panel-group {
     float: left;
     width: 25vw;
@@ -183,9 +188,13 @@ panel-body h2 {
 }
 
 @media (max-width: 768px){
-  #panel-group{
+  .panel-group{
     float: none;
     display:block;
+    width: 100vw;
+  }
+  .card-header,
+  .card{
     width: 100vw;
   }
   #map{
