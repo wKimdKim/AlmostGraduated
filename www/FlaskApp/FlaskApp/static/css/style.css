@@ -68,7 +68,6 @@ header .container-fluid{
 
 body {
   background: #FFFFFF;
-  color: #2196F3;
 }
 
 ul {
@@ -78,6 +77,10 @@ ul {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
+}
+
+panel-body h2{
+	color:#2196F3;
 }
 
 .date {
