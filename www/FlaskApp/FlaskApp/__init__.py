@@ -17,8 +17,11 @@ def index():
     try:
         return render_template('index.html')
     except Exception as e:
-        print str(e)
+        print(str(e))
 
+@app.route('/dbquery/events', methods=['POST'])
+
+#@app.route('')
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
