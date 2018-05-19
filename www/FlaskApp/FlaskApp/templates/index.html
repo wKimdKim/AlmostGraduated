@@ -41,7 +41,7 @@
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                             aria-controls="collapseOne">
-                        Create Event
+                        <h6>Create Event</h6>
                     </button>
                 </h5>
             </div>
@@ -49,22 +49,31 @@
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div>
-                        <label for="name" class="heading">Name</label>
-                        <input type="name" class="form-control" id="name" placeholder="Enter name">
+                        <label for="name" class="bmd-label-floating">Name</label>
+                        <input type="text" class="form-control" id="name">
                     </div>
+                    <!--<div>-->
+                    <!--<label for="area" class="heading">Area</label>-->
+                    <!--<input type="area" class="form-control" id="area" placeholder="Enter area">-->
+                    <!--</div>-->
+                    <label for="exampleFormControlSelect1" class="bmd-label-floating">Area</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+
                     <div>
-                        <label for="area" class="heading">Area</label>
-                        <input type="area" class="form-control" id="area" placeholder="Enter area">
-                    </div>
-                    <div>
-                        <label for="description" class="heading">Description</label>
-                        <input type="description" class="form-control" id="description" placeholder="Enter description">
+                        <label for="description" class="bmd-label-floating">Description</label>
+                        <input type="text" class="form-control" id="description">
                     </div>
                     <form action="/action_page.php">
-                      <label for="datetime-local" class="heading">Time</label>
-                      <input type="datetime-local" class="form-control datetimeInput" id = "datetime-local">
+                        <label for="datetime-local" class="heading">Time</label>
+                        <input type="datetime-local" class="form-control datetimeInput" id="datetime-local">
                     </form>
-                    <button type="button" onclick="Create_event()" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="Create_event()" class="btn btn-primary btn-raised">Submit</button>
                 </div>
             </div>
         </div>
@@ -73,20 +82,20 @@
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="false" aria-controls="collapseTwo">
-                        View Events
+                        <h6>View Event</h6>
                     </button>
                 </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body" style="padding-bottom: 90px">
-                    <h3 class="eventHeaderFirst">Monday 20th Jan</h3>
+                    <h3 class="eventHeader">Monday 20th Jan</h3>
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <h5 class="card-title">CompSci 210 Test Cram session</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">12:00-4:00</h6>
+                            <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will be here for a few hours</p>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -95,7 +104,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -104,7 +114,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <h3 class="eventHeader">Monday 20th Jan</h3>
@@ -114,7 +125,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -123,7 +135,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
@@ -132,7 +145,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
                     <h3 class="eventHeader">Monday 20th Jan</h3>
@@ -142,7 +156,8 @@
                             <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
-                            <a href="#" class="card-link">Join Event</a>
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
                         </div>
                     </div>
 
@@ -151,6 +166,35 @@
         </div>
         <div class="card" style="position: absolute; bottom: 0; width: 25vw; height: 7vh;">
             <h5 class="card-header">Contact Us</h5>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="eventRegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Event Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                    <label for="nameModal" class="bmd-label-floating">Name</label>
+                    <input type="text" class="form-control" id="nameModal">
+                </div>
+                <div class="form-group">
+                    <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+                    <label for="whateverElse" class="bmd-label-floating">whateverElse</label>
+                    <input type="text" class="form-control" id="whateverElse">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
         </div>
     </div>
 </div>
