@@ -57,9 +57,10 @@ function Create_event() {
     url: '/add/event',
     contentType: 'application/json',
     type: 'POST',
-    data: JSON.stringify({'Name': Name,'Area': Area,'DateTime': DateTime, 'Latitude': lat, 'Longitude': long}),
+    data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude': lat, 'Longitude': long}),
     success: function(response){
       alert(response)
+      console.log(response);
       },
     error: function(response){
       alert(response)
