@@ -27,7 +27,5 @@ class db:
 		self.conn.commit()
 		
 
-db = db('StudyGroups.db')
 
-db.get_user(1)
-db.add_event('[1,2,3]',5)
+

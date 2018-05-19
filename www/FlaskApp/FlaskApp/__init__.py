@@ -9,6 +9,7 @@ from flask import (
     render_template_string
 )
 import sqlite3 
+import database
 
 app = Flask(__name__)
 
@@ -25,11 +26,10 @@ def index():
 def addevent():
     name = request.json['Name']
     area = request.json['Area']
-    print(request)
-    print('name is', name)
-    print('area is', area)
-    print('Finished')
-    return 'This ksjbfkajbsnklajnlsdknalk'
+    db = database.db('StudyGroups.db')
+    db.add_event(name,area)
+
+    return 'Success'
 
 
 @app.route('/css/<path:filename>')
