@@ -4,6 +4,10 @@ function myMap() {
       zoom:18,
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
+  map.addListener('click', function(e) {
+    placeMarkerAndPanTo(e.latLng, map);
+  });
+  google.maps.event.clearInstanceListeners(marker);
 }
 
 
@@ -21,6 +25,14 @@ function Create_event() {
 			},
 		error: function(response){
 			alert(response)
-			}			
+			}
 	});
 };
+
+function placeMarkerAndPanTo(latLng, map) {
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map
+  });
+  map.panTo(latLng);
+}
