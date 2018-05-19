@@ -25,6 +25,11 @@ header .container-fluid {
 }
 
 /*Panel*/
+.card{
+  position: relative;
+  top: 0;
+  width: 25vw;
+}
 .panel-group {
     float: left;
     width: 25vw;
@@ -68,6 +73,7 @@ header .container-fluid {
 /*Forms*/
 #forms{
   float: left;
+  overflow: hidden;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);
@@ -179,4 +185,21 @@ panel-body h2 {
     li.date p {
         margin: 0;
     }
+}
+
+@media (max-width: 768px){
+  .panel-group{
+    float: none;
+    width: 100vw;
+  }
+  .card-header,
+  .card{
+    width: 100vw;
+    height: auto;
+  }
+  #map{
+    float: none;
+    display: block;
+    width: 100vw;
+  }
 }
