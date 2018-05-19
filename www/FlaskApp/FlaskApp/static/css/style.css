@@ -190,12 +190,12 @@ panel-body h2 {
 @media (max-width: 768px){
   .panel-group{
     float: none;
-    display:block;
     width: 100vw;
   }
   .card-header,
   .card{
     width: 100vw;
+    height: auto;
   }
   #map{
     float: none;
