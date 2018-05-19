@@ -9,34 +9,45 @@
     <script src="../static/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap-css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <title>AlmostGraduated | Home</title>
     <script src="/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+            integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+            integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+            crossorigin="anonymous"></script>
     <title></title>
 </head>
-<body>
-    <!-- <header>
-      <div class = "container-fluid">
-        <h1>Almost <span class = "highlight">Graduated</span></h1>
-      </div>
-    </header> -->
+<body style="background: #f4f4f4">
+<div class="left-container">
+    <div class="card" style="position: relative; top: 0; width: 25vw;">
+        <h2 class="card-header" style="alignment: center">Almost<span class="highlight">Graduated</span></h2>
+    </div>
+
+    <!--<h2 class="branding" style="padding-bottom: 20px; overflow: scroll">Almost<span-->
+    <!--class="highlight">Graduated</span></h2>-->
     <div class="panel-group" id="accordion">
-        <h2 class="branding">Almost<span class="highlight">Graduated</span></h2>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Create Event</a>
-                </h4>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        Create Event
+                    </button>
+                </h5>
             </div>
-            <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
                     <div>
                         <label for="name" class="heading">Name</label>
                         <input type="name" class="form-control" id="name" placeholder="Enter name">
@@ -49,120 +60,92 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">View Event</a>
-                </h4>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                        View Events
+                    </button>
+                </h5>
             </div>
-            <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h1>Events Page</h1>
-                    <ul class="main">
-                        <li class="date">
-                            <h3>19th Apr</h3>
-                            <p>Events</p>
-                        </li>
-                        <li class="events">
-                            <ul class="eventDetails">
-                                <li>
-                                    <a href="#" onclick="moreEventDetails()">
-                                        <span class="eventTime">9:00AM</span>
-                                        <span class="eventName">HACKFEST</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-                                <li div id="showEventDetails" style="display:none">
-                                    <span>This event is about blah blah blah</span>
-                                </li>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body" style="padding-bottom: 90px">
+                    <h3 class="eventHeaderFirst">Monday 20th Jan</h3>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <h3 class="eventHeader">Monday 20th Jan</h3>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
+                    <h3 class="eventHeader">Monday 20th Jan</h3>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of the card's content.</p>
+                            <a href="#" class="card-link">Join Event</a>
+                        </div>
+                    </div>
 
-                                </br>
-
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">1:00PM</span>
-                                        <span class="eventName">LUNCH</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                                </br>
-
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">5:00PM</span>
-                                        <span class="eventName">FINISH</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                                </br>
-
-                            </ul>
-                        </li>
-
-                        <li class="date">
-                            <h3>20th Apr</h3>
-                            <p>Events</p>
-                        </li>
-                        <li class="events">
-                            <ul class="eventDetails">
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">9:00AM</span>
-                                        <span class="eventName">HACKFEST</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                                </br>
-
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">1:00PM</span>
-                                        <span class="eventName">LUNCH</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                                </br>
-
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">5:00PM</span>
-                                        <span class="eventName">PRESENTATION</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                                </br>
-
-                                <li>
-                                    <a href="#">
-                                        <span class="eventTime">6:00PM</span>
-                                        <span class="eventName">FINISH</span>
-                                        </br>
-                                        <span class="eventLocation">University of Auckland</span>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-
-                    </ul>
-
-
-</body></div>
-      </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="position: absolute; bottom: 0; width: 25vw; height: 7vh;">
+            <h5 class="card-header">Contact Us</h5>
+        </div>
     </div>
-  </div>
-
+</div>
 
 <!-- <section id = "forms">
   <div class = "container-fluid">
@@ -181,9 +164,8 @@
   </section> -->
 <section id="map">
     <p>map goes here</p>
-    </div>
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKINPzsnPxnwPsd8HayNsCt4CCEET_2c&callback=myMap"></script>
-  </body>
+</body>
 </html>
