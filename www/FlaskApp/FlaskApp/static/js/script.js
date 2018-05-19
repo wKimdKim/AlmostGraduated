@@ -77,20 +77,3 @@ function moreEventDetails() {
         details.style.display = "none";
     }
 }
-
-
-function get_marker(id){
-  $.ajax({
-    url: '/location/query',
-    contentType: 'application/json',
-    type: 'POST',
-    data: JSON.stringify({'id':id}),
-    success: function(response){
-      console.log(response['latitude']);
-      console.log(response['longitude']);
-      },
-    error: function(response){
-      alert(response)
-      }
-  });
-} 

@@ -26,16 +26,11 @@ def index():
     finally:
         db.close()
 
-@app.route('/location/query', methods=['POST'])
-def get_location_details():
-    id = request.json['id']
-    db = database.db('StudyGroups.db')
-    query_data = db.location_query(id)
-    return jsonify(longitude=query_data[1],latitude=query_data[2])
+@app.route('/event/query', methods=['POST'])
 
 
 @app.route('/add/event', methods=['POST'])
-def add_event():
+def addevent():
     name = request.json['Name']
     area = request.json['Area']
     date = request.json['DateTime']
@@ -56,4 +51,4 @@ def js_static(filename):
 
 
 if __name__ == '__main__':
-    app.run() 
+    app.run()
