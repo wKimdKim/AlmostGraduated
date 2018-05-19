@@ -7,7 +7,7 @@ function myMap() {
   map.addListener('click', function(e) {
     placeMarkerAndPanTo(e.latLng, map);
   });
-  google.maps.event.clearInstanceListeners(marker);
+  google.maps.event.clearListener(map);
 }
 
 
