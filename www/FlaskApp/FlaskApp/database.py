@@ -40,12 +40,13 @@ class db:
 		self.conn.commit()
 
 	def event_lookup(self, id):
-		self.cursor.execute("SELECT * FROM ")
+		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
+	
 
 	def close(self):
 		self.cursor.close()
 		self.conn.close() 
-# d = db('StudyGroups.db')
+
 
 # b = d.event_lookup
 
