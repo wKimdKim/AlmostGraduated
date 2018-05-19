@@ -45,3 +45,12 @@ function Create_event() {
 			}
 	});
 }
+
+function moreEventDetails() {
+    var details = document.getElementById("showEventDetails");
+    if (details.style.display === "none") {
+        details.style.display = "block";
+    } else {
+        details.style.display = "none";
+    }
+}
