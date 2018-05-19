@@ -45,7 +45,6 @@ class db:
 	def close(self):
 		self.cursor.close()
 		self.conn.close() 
-		
 # d = db('StudyGroups.db')
 
 # b = d.event_lookup
