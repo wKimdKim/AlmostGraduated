@@ -12,6 +12,7 @@ function myMap() {
     marker.setPosition(e.latLng);
     lat = marker.position.lat();
     long = marker.position.lng();
+    // console.log(long)
     placeMarkerAndPanTo(marker.getPosition(), map);
     google.maps.event.clearListeners(map, 'click');
   });
@@ -43,4 +44,4 @@ function Create_event() {
 			alert(response)
 			}
 	});
-};
+}

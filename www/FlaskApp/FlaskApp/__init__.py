@@ -20,7 +20,15 @@ def index():
     except Exception as e:
         print(str(e))
 
-#@app.route('/dbquery/events', methods=['POST'])
+@app.route('/events')
+def events():
+    try:
+        return render_template('HTMLPage1.html')
+    except Exception as e:
+        print(str(e))
+
+@app.route('/event/query', methods=['POST'])
+
 
 @app.route('/add/event', methods=['POST'])
 def addevent():
@@ -29,7 +37,6 @@ def addevent():
     db = database.db('StudyGroups.db')
     db.add_event(name,area)
     return 'Success'
-
 
 @app.route('/css/<path:filename>')
 def css_static(filename):

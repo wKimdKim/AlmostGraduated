@@ -8,8 +8,6 @@ class db:
 
 	def get_user(self, id):
 		data = self.cursor.execute("SELECT Name,CourseList FROM User WHERE ID=?",(id,)).fetchall()[0]
-		print('Name is ',str(data[0]))
-		print('Courses are',str(data[1]))
 
 	def get_event(self, id):
 		pass

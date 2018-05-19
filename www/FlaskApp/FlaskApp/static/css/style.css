@@ -79,6 +79,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+panel-body h2{
+	color:#2196F3;
+}
+
 .date {
   width: 17%;
   padding: 15% 1% 0 0;
