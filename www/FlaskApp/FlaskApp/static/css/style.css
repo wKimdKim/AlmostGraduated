@@ -1,51 +1,68 @@
-.container-fluid{
-  width: 80%;
-  margin: auto;
-  overflow: hidden;
+.container-fluid {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
-.highlight{
-  color: #FFC107
+
+.highlight {
+    color: #FFC107
 }
-body{
-  background-color: #ffffff;
+
+body {
+    background-color: #f4f4f4;
 }
 
 /*Header*/
-header{
-  background-color: #2196F3;
-  color: white;
+header {
+    background-color: #2196F3;
+    color: white;
 }
-header .container-fluid{
-  width: 96%;
-  margin: auto;
-  overflow: hidden;
+
+header .container-fluid {
+    width: 96%;
+    margin: auto;
+    overflow: hidden;
 }
 
 /*Panel*/
-.panel-group{
-  float: left;
-  width: 25vw;
-  height: 100vh;
-}
-.panelButton{
-  width: 100%;
-  background-color: #white !important;
-}
-.branding{
-  margin-left: 15px;
-}
-.heading{
-  margin-top: 8px;
-}
-.datetimeInput{
-  margin-bottom: 8px;
+.panel-group {
+    float: left;
+    width: 25vw;
+    height: 93vh;
+    overflow: scroll;
+    padding-top: 10px;
 }
 
+.left-container {
+    float: left;
+    width: 25vw;
+    height: 100vh;
+}
+
+.panelButton {
+    width: 100%;
+    background-color: #FFFFFF !important;
+}
+
+.branding {
+    margin-left: 15px;
+}
+
+.heading {
+    margin-top: 8px;
+}
+
+.areaInput {
+    margin-bottom: 8px;
+}
+.datetimeInput {
+    margin-bottom: 8px;
+}
 /*Google map*/
-#map{
-  height:100vh;
-  width: 75vw;
-  float: right;
+#map {
+    height: 100vh;
+    width: 75vw;
+    float: right;
 }
 
 /*Forms*/
@@ -56,102 +73,112 @@ header .container-fluid{
 @import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);
 @import url(http://weloveiconfonts.com/api/?family=entypo);
 [class*="entypo-"]:before {
-  font-family: 'entypo', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 *, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-family: 'Open Sans', 'sans-serif';
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto', 'sans-serif';
 }
 
+
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-panel-body h2{
-	color:#2196F3;
+panel-body h2 {
+    color: #2196F3;
 }
 
 .date {
-  width: 17%;
-  padding: 15% 1% 0 0;
-  float: left;
-  color: #2196F3;
+    width: 17%;
+    padding: 15% 1% 0 0;
+    float: left;
+    color: #2196F3;
 }
 
 .date h3 {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 .date p {
-  font-size: 1.0em;
-  padding-bottom: 10%;
+    font-size: 1.0em;
+    padding-bottom: 10%;
 }
 
 .events {
-  float: left;
-  width: 80%;
-  border-left: 1px solid #ccc;
-  margin-top: 10%;
-  padding-top: 3%;
+    float: left;
+    width: 80%;
+    border-left: 1px solid #ccc;
+    margin-top: 10%;
+    padding-top: 3%;
 }
 
 .eventDetails {
-  max-width: 550px;
+    max-width: 550px;
 }
 
 .eventDetails li {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  line-height: 22px;
-  color: #2196F3;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    line-height: 22px;
+    color: #2196F3;
 }
 
 .eventTime {
-  font-weight: 900;
+    font-weight: 900;
 }
 
 .eventDetails li a {
-  text-decoration: none;
-  color: #444;
-  width: 100%;
-  height: 100%;
-  display: block;
-  color: #2196F3;
+    text-decoration: none;
+    color: #444;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #2196F3;
 }
 
 .eventLocation {
-  color: #FFC107;
-  margin-left: 70px;
+    color: #FFC107;
+    margin-left: 70px;
+}
+
+.eventHeader {
+    padding-top: 20px;
+    padding-bottom: 8px
+}
+
+.eventHeaderFirst {
+    padding-bottom: 8px
 }
 
 @media all and (max-width: 641px) {
-  .date {
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
+    .date {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
 
-  .events {
-    border: none;
-    width: 100%;
-    margin-top: 0;
-  }
+    .events {
+        border: none;
+        width: 100%;
+        margin-top: 0;
+    }
 
-  .eventDetails {
-    padding: 0;
-  }
+    .eventDetails {
+        padding: 0;
+    }
 
-  li.date p {
-    margin: 0;
-  }
+    li.date p {
+        margin: 0;
+    }
 }
 
 /*@media(max-width)*/

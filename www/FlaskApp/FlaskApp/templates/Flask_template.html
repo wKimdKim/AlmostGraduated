@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="../static/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <title>AlmostGraduated | Home</title>
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <!-- <header>
+      <div class = "container-fluid">
+        <h1>Almost <span class = "highlight">Graduated</span></h1>
+      </div>
+    </header> -->
+    <div class="panel-group" id="accordion">
+        <h2 class="branding">Almost<span class="highlight">Graduated</span></h2>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Create Event</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div>
+                        <label for="name" class="heading">Name</label>
+                        <input type="name" class="form-control" id="name" placeholder="Enter name">
+                    </div>
+                    <div>
+                        <label for="area" class="heading">Area</label>
+                        <input type="email" class="form-control areaInput" id="area" placeholder="Enter area">
+                    </div>
+                    <button type="button" onclick="Create_event()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">View Event</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h1>Events Page</h1>
+                    <ul class="main">
+                        
+
+                    {% for i in range(lenght)%}
+                        <li class="date">
+                            <h3>{{Events[i][0][3]}}</h3>
+                            <p>Events</p>
+                        </li>
+                        <li class="events">
+                            <ul class="eventDetails">
+                                {% for Event in Events[i] %}
+                                <li>
+                                    <a href="#" onclick="moreEventDetails()">
+                                        <span class="eventTime">{{Event[2]}}</span>
+                                        <span class="eventName">{{Event[1]}}</span>
+                                        </br>
+                                        <span class="eventLocation">{{lookup(Event[5])}}</span>
+                                    </a>
+                                </li>
+                                </br>
+
+                                {% endfor %}  
+                            </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+
+</body></div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <section id = "forms">
+  <div class = "container-fluid">
+    <div>
+      <h2>Event<h2>
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="name" class="form-control" id="name" placeholder="Enter name">
+    </div>
+    <div>
+      <label for="area">Area</label>
+      <input type="email" class="form-control" id="area" placeholder="Enter area">
+    </div>
+    <button type="button" class="btn btn-primary">Primary</button>
+  </section> -->
+<section id="map">
+    <p>map goes here</p>
+    </div>
+</section>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKINPzsnPxnwPsd8HayNsCt4CCEET_2c&callback=myMap"></script>
+  </body>
+</html>
