@@ -1,88 +1,186 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src = "../static/js/script.js"></script>
-    <link rel = "stylesheet" type = "text/css" href = "../static/css/style.css">
+    <script src="../static/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap-css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <title>AlmostGraduated | Home</title>
-    <script src = "/js/script.js"></script>
-    <link rel = "stylesheet" type = "text/css" href = "/css/style.css">
+    <script src="/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title></title>
-  </head>
-  <body>
+</head>
+<body>
     <!-- <header>
       <div class = "container-fluid">
         <h1>Almost <span class = "highlight">Graduated</span></h1>
       </div>
     </header> -->
     <div class="panel-group" id="accordion">
-      <h2 class = "branding">Almost<span class = "highlight">Graduated</span></h2>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Create Event</a>
-        </h4>
-      </div>
-      <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body">
-          <div>
-            <label for="name" class = "heading">Name</label>
-            <input type="name" class="form-control" id="name" placeholder="Enter name">
-          </div>
-          <div>
-            <label for="area" class = "heading">Area</label>
-            <input type="email" class="form-control areaInput" id="area" placeholder="Enter area">
-          </div>
-          <button type="button" onclick = "Create_event()" class="btn btn-primary">Submit</button>
+        <h2 class="branding">Almost<span class="highlight">Graduated</span></h2>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Create Event</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <div>
+                        <label for="name" class="heading">Name</label>
+                        <input type="name" class="form-control" id="name" placeholder="Enter name">
+                    </div>
+                    <div>
+                        <label for="area" class="heading">Area</label>
+                        <input type="email" class="form-control areaInput" id="area" placeholder="Enter area">
+                    </div>
+                    <button type="button" onclick="Create_event()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">View Event</a>
-        </h4>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">View Event</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h1>Events Page</h1>
+                    <ul class="main">
+                        <li class="date">
+                            <h3>19th Apr</h3>
+                            <p>Events</p>
+                        </li>
+                        <li class="events">
+                            <ul class="eventDetails">
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">9:00AM</span>
+                                        <span class="eventName">HACKFEST</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">1:00PM</span>
+                                        <span class="eventName">LUNCH</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">5:00PM</span>
+                                        <span class="eventName">FINISH</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                            </ul>
+                        </li>
+
+                        <li class="date">
+                            <h3>20th Apr</h3>
+                            <p>Events</p>
+                        </li>
+                        <li class="events">
+                            <ul class="eventDetails">
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">9:00AM</span>
+                                        <span class="eventName">HACKFEST</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">1:00PM</span>
+                                        <span class="eventName">LUNCH</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">5:00PM</span>
+                                        <span class="eventName">PRESENTATION</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                                </br>
+
+                                <li>
+                                    <a href="#">
+                                        <span class="eventTime">6:00PM</span>
+                                        <span class="eventName">FINISH</span>
+                                        </br>
+                                        <span class="eventLocation">University of Auckland</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+
+
+</body></div>
       </div>
     </div>
   </div>
 
 
-    <!-- <section id = "forms">
-      <div class = "container-fluid">
-        <div>
-          <h2>Event<h2>
-        </div>
-        <div>
-          <label for="name">Name</label>
-          <input type="name" class="form-control" id="name" placeholder="Enter name">
-        </div>
-        <div>
-          <label for="area">Area</label>
-          <input type="email" class="form-control" id="area" placeholder="Enter area">
-        </div>
-        <button type="button" class="btn btn-primary">Primary</button>
-      </section> -->
-      <section id = "map">
-        <p>map goes here</p>
+<!-- <section id = "forms">
+  <div class = "container-fluid">
+    <div>
+      <h2>Event<h2>
     </div>
-    </section>
+    <div>
+      <label for="name">Name</label>
+      <input type="name" class="form-control" id="name" placeholder="Enter name">
+    </div>
+    <div>
+      <label for="area">Area</label>
+      <input type="email" class="form-control" id="area" placeholder="Enter area">
+    </div>
+    <button type="button" class="btn btn-primary">Primary</button>
+  </section> -->
+<section id="map">
+    <p>map goes here</p>
+    </div>
+</section>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKINPzsnPxnwPsd8HayNsCt4CCEET_2c&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKINPzsnPxnwPsd8HayNsCt4CCEET_2c&callback=myMap"></script>
   </body>
 </html>
