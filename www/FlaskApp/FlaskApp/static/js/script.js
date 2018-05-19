@@ -1,7 +1,10 @@
+/*Global Variables*/
 var marker;
 var latitude;
 var longitude;
 
+/*Creates the google map. Added a listener so when user click on the map, marker is placed.
+Saves the marker's latitude and longitude*/
 function myMap() {
   var mapProp= {
       center:new google.maps.LatLng(-36.852701,174.7699),
