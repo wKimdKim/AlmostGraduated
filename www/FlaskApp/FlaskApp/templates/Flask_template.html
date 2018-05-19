@@ -9,88 +9,153 @@
     <script src="../static/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-    <link href="bootstrap-css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     <title>AlmostGraduated | Home</title>
     <script src="/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+            integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+            integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+            crossorigin="anonymous"></script>
     <title></title>
 </head>
-<body>
-    <!-- <header>
-      <div class = "container-fluid">
-        <h1>Almost <span class = "highlight">Graduated</span></h1>
-      </div>
-    </header> -->
+<body style="background: #f4f4f4">
+<div class="left-container">
+    <div class="card" style="position: relative; top: 0; width: 25vw;">
+        <h2 class="card-header" style="alignment: center">Almost<span class="highlight">Graduated</span></h2>
+    </div>
+
+    <!--<h2 class="branding" style="padding-bottom: 20px; overflow: scroll">Almost<span-->
+    <!--class="highlight">Graduated</span></h2>-->
     <div class="panel-group" id="accordion">
-        <h2 class="branding">Almost<span class="highlight">Graduated</span></h2>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Create Event</a>
-                </h4>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                        <h6>Create Event</h6>
+                    </button>
+                </h5>
             </div>
-            <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
                     <div>
-                        <label for="name" class="heading">Name</label>
-                        <input type="name" class="form-control" id="name" placeholder="Enter name">
+                        <label for="name" class="bmd-label-floating">Name</label>
+                        <input type="text" class="form-control" id="name">
                     </div>
                     <div>
-                        <label for="area" class="heading">Area</label>
-                        <input type="email" class="form-control areaInput" id="area" placeholder="Enter area">
+                        <label for="email" class="bmd-label-floating">Email</label>
+                        <input type="email" class="form-control" id="email">
                     </div>
-                    <button type="button" onclick="Create_event()" class="btn btn-primary">Submit</button>
+                    <!--Future feature? Filtering-->
+                    <!--<div>-->
+                        <!--<label for="course" class="bmd-label-floating">Course</label>-->
+                        <!--<input type="course" class="form-control" id="course">-->
+                    <!--</div>-->
+
+
+                    <!--<div>-->
+                    <!--<label for="area" class="heading">Area</label>-->
+                    <!--<input type="area" class="form-control" id="area" placeholder="Enter area">-->
+                    <!--</div>-->
+                    <label for="exampleFormControlSelect1" class="bmd-label-floating">Area</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>OGGB Upstairs</option>
+                        <option>OGGB Downstairs</option>
+                        <option>Computer Science Ground Labs</option>
+                        <option>ICO</option>
+                        <option>GenLib</option>
+                    </select>
+
+                    <div>
+                        <label for="description" class="bmd-label-floating">Description</label>
+                        <input type="text" class="form-control" id="description">
+                    </div>
+                    <form action="/action_page.php">
+                        <label for="datetime-local" class="heading">Time</label>
+                        <input type="datetime-local" class="form-control datetimeInput" id="datetime-local">
+                    </form>
+                    <button type="button" onclick="Create_event()" class="btn btn-primary btn-raised">Submit</button>
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">View Event</a>
-                </h4>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                        <h6>View Event</h6>
+                    </button>
+                </h5>
             </div>
-            <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h1>Events Page</h1>
-                    <ul class="main">
-                        
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-body" style="padding-bottom: 90px">
 
-                    {% for i in range(lenght)%}
-                        <li class="date">
-                            <h3>{{Events[i][0][3]}}</h3>
-                            <p>Events</p>
-                        </li>
-                        <li class="events">
-                            <ul class="eventDetails">
-                                {% for Event in Events[i] %}
-                                <li>
-                                    <a href="#" onclick="moreEventDetails()">
-                                        <span class="eventTime">{{Event[2]}}</span>
-                                        <span class="eventName">{{Event[1]}}</span>
-                                        </br>
-                                        <span class="eventLocation">{{lookup(Event[5])}}</span>
-                                    </a>
-                                </li>
-                                </br>
+                    {% for i in range(lenght) %}
 
-                                {% endfor %}  
-                            </ul>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                    <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
+                    {% for event in Events[i] %}
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event[1]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
+                            <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
+                                be here for a few hours. I'll be wearing the red cap.</p>
 
+                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
+                                Event</a>
+                            <div class="card-footer text-muted text-center">
+                                {{lookup(event[5])}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
 
-</body></div>
-      </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="position: absolute; bottom: 0; width: 25vw; height: 7vh;">
+            <h5 class="card-header">Contact Us</h5>
+        </div>
     </div>
-  </div>
-
+</div>
+<div class="modal fade" id="eventRegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Event Name</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="nameModal" class="bmd-label-floating">Name</label>
+                    <input type="text" class="form-control" id="nameModal">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="bmd-label-floating">Email</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- <section id = "forms">
   <div class = "container-fluid">
@@ -109,9 +174,8 @@
   </section> -->
 <section id="map">
     <p>map goes here</p>
-    </div>
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCyKINPzsnPxnwPsd8HayNsCt4CCEET_2c&callback=myMap"></script>
-  </body>
+</body>
 </html>

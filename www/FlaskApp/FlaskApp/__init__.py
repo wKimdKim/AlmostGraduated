@@ -16,30 +16,15 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     try:
-        return render_template('index.html',Event_Name='EVENT NAME HERE')
-    except Exception as e:
-        print(str(e))
-
-@app.route('/test')
-def test():
-    try:
         db = database.db('StudyGroups.db')
         lookup = db.event_lookup
         Events = db.get_all_events()
         Length = len(Events)
-        return render_template('Flask_template.html',lenght=Length, Events=Events, lookup=lookup)
+        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup)
     except Exception as e:
         print(str(e))
     finally:
         db.close()
-
-
-@app.route('/events')
-def events():
-    try:
-        return render_template('HTMLPage1.html')
-    except Exception as e:
-        print(str(e))
 
 #@app.route('/event/query', methods=['POST'])
 
@@ -48,8 +33,12 @@ def events():
 def addevent():
     name = request.json['Name']
     area = request.json['Area']
+    date = request.json['DateTime']
+    Lat = request.json['Latitude']
+    Long = request.json['Longitude']
     db = database.db('StudyGroups.db')
-    db.add_event(name,area)
+    db.add_event(name, area, date, Long, Lat)
+    db.close()
     return 'Success'
 
 @app.route('/css/<path:filename>')
@@ -62,4 +51,4 @@ def js_static(filename):
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run()

@@ -50,6 +50,7 @@ function Create_event() {
   var Name = $("#name").val();
   var Area = $("#area").val();
   var DateTime = $("#datetime-local").val();
+  console.log(DateTime);
   var lat = latitude;
   var long = longitude;
 

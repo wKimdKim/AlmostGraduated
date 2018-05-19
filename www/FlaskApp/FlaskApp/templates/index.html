@@ -100,107 +100,26 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body" style="padding-bottom: 90px">
-                    <h3 class="eventHeader">Monday 20th Jan</h3>
+                    {% for i in range(lenght) %}
+
+                    <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
+                    {% for event in Events[i] %}
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">CompSci 210 Test Cram session</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">12:00-4:00</h6>
+                            <h5 class="card-title">{{event[1]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
                             <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
                                 be here for a few hours. I'll be wearing the red cap.</p>
 
                             <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
                                 Event</a>
                             <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
+                                {{lookup(event[5])}}
                             </div>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
-                    <h3 class="eventHeader">Monday 20th Jan</h3>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
-                    <h3 class="eventHeader">Monday 20th Jan</h3>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                OGGB Downstairs
-                            </div>
-
-                        </div>
-                    </div>
+                    {% endfor %}
+                    {% endfor %}
 
                 </div>
             </div>
