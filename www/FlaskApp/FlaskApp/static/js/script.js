@@ -23,14 +23,15 @@ function myMap() {
     // marker.setPosition(e.latLng);
     latitude = marker.position.lat();
     longitude = marker.position.lng();
-    // // console.log(long)
+    // console.log(latitude);
+    // console.log(longitude);
     // placeMarkerAndPanTo(marker.getPosition(), map);
     // google.maps.event.clearListeners(map, 'click');
   });
 }
-google.maps.event.addListener(map, 'click', function(event) {
-  placeMarker(event.latLng);
-});
+// google.maps.event.addListener(map, 'click', function(event) {
+//   placeMarker(event.latLng);
+// });
 
 // function placeMarkerAndPanTo(latLng, map) {
 //   var marker = new google.maps.Marker({
@@ -45,6 +46,7 @@ google.maps.event.addListener(map, 'click', function(event) {
 function Create_event() {
   var Name = $("#name").val();
   var Area = $("#area").val();
+  var DateTime = $("#datetime-local").val();
   var lat = latitude;
   var long = longitude;
 
@@ -52,9 +54,10 @@ function Create_event() {
     url: '/add/event',
     contentType: 'application/json',
     type: 'POST',
-    data: JSON.stringify({'Name':Name,'Area':Area, 'Latitude': lat, 'Longitude': long}),
+    data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude': lat, 'Longitude': long}),
     success: function(response){
       alert(response)
+      console.log(response);
       },
     error: function(response){
       alert(response)

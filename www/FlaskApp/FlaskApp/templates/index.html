@@ -14,12 +14,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-    <title>AlmostGraduated | Home</title>
-    <script src="/js/script.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title></title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <title>AlmostGraduated | Home</title>
 </head>
 <body>
     <!-- <header>
@@ -43,8 +41,12 @@
                     </div>
                     <div>
                         <label for="area" class="heading">Area</label>
-                        <input type="email" class="form-control areaInput" id="area" placeholder="Enter area">
+                        <input type="area" class="form-control" id="area" placeholder="Enter area">
                     </div>
+                    <form action="/action_page.php">
+                      <label for="datetime-local" class="heading">Time</label>
+                      <input type="datetime-local" class="form-control datetimeInput">
+                    </form>
                     <button type="button" onclick="Create_event()" class="btn btn-primary">Submit</button>
                 </div>
             </div>

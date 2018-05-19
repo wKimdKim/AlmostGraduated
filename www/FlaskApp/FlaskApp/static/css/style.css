@@ -7,7 +7,7 @@
   color: #FFC107
 }
 body{
-  background-color: #f4f4f4;
+  background-color: #ffffff;
 }
 
 /*Header*/
@@ -37,7 +37,7 @@ header .container-fluid{
 .heading{
   margin-top: 8px;
 }
-.areaInput{
+.datetimeInput{
   margin-bottom: 8px;
 }
 
@@ -64,10 +64,6 @@ header .container-fluid{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: 'Open Sans', 'sans-serif';
-}
-
-body {
-  background: #FFFFFF;
 }
 
 ul {
