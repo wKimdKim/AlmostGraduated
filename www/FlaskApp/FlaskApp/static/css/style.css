@@ -1,11 +1,34 @@
-header{
-  background-color: red;
+.container-fluid{
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
+.highlight{
+  color: #FFC107
+}
+body{
+  background-color: #f4f4f4;
+}
+
+/*Header*/
+header{
+  background-color: #2196F3;
+  color: white;
+}
+header .container-fluid{
+  width: 96%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/*Google map*/
 #map{
   height:100vh;
-  width: 65vw;
+  width: 70vw;
   float: right;
 }
+
+/*Forms*/
 #forms{
   float: left;
 }
