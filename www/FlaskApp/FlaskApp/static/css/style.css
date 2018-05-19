@@ -68,6 +68,7 @@ header .container-fluid {
 /*Forms*/
 #forms{
   float: left;
+  overflow: hidden;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Lato|Open+Sans);
@@ -179,4 +180,17 @@ panel-body h2 {
     li.date p {
         margin: 0;
     }
+}
+
+@media (max-width: 768px){
+  #panel-group{
+    float: none;
+    display:block;
+    width: 100vw;
+  }
+  #map{
+    float: none;
+    display: block;
+    width: 100vw;
+  }
 }
