@@ -27,7 +27,7 @@ def events():
     except Exception as e:
         print(str(e))
 
-@app.route('/event/query', methods=['POST'])
+#@app.route('/event/query', methods=['POST'])
 
 
 @app.route('/add/event', methods=['POST'])
