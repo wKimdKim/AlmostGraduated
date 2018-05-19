@@ -1,3 +1,4 @@
+var marker;
 var latitude;
 var longitude;
 
@@ -8,23 +9,36 @@ function myMap() {
   };
   var map=new google.maps.Map(document.getElementById("map"),mapProp);
   var mapListener = map.addListener('click', function(e) {
-    var marker = new google.maps.Marker()
-    marker.setPosition(e.latLng);
-    latitude = marker.position.lat();
-    longitude = marker.position.lng();
-    // console.log(long)
-    placeMarkerAndPanTo(marker.getPosition(), map);
-    google.maps.event.clearListeners(map, 'click');
+    if (marker){
+      marker.setPosition(e.latLng);
+    }
+    else{
+      marker = new google.maps.Marker({
+        position: e.latLng,
+        map: map
+      });
+    }
+    console.log(marker.position.lng());
+    // marker = new google.maps.Marker()
+    // marker.setPosition(e.latLng);
+    // latitude = marker.position.lat();
+    // longitude = marker.position.lng();
+    // // console.log(long)
+    // placeMarkerAndPanTo(marker.getPosition(), map);
+    // google.maps.event.clearListeners(map, 'click');
   });
 }
+google.maps.event.addListener(map, 'click', function(event) {
+  placeMarker(event.latLng);
+});
 
-function placeMarkerAndPanTo(latLng, map) {
-  var marker = new google.maps.Marker({
-    position: latLng,
-    map: map
-  });
-  map.panTo(latLng);
-}
+// function placeMarkerAndPanTo(latLng, map) {
+//   var marker = new google.maps.Marker({
+//     position: latLng,
+//     map: map
+//   });
+//   map.panTo(latLng);
+// }
 
 
 
