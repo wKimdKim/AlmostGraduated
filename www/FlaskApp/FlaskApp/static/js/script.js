@@ -93,4 +93,4 @@ function get_marker(id){
       alert(response)
       }
   });
-}
+} 

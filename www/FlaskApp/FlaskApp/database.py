@@ -56,7 +56,7 @@ class db:
 
 	def close(self):
 		self.cursor.close()
-		self.conn.close() 
+		self.conn.close()  
 
 
 # d = db('StudyGroups.db')
