@@ -28,7 +28,6 @@ def addevent():
     area = request.json['Area']
     db = database.db('StudyGroups.db')
     db.add_event(name,area)
-
     return 'Success'
 
 
