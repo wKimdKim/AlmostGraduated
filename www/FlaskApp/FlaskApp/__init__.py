@@ -27,9 +27,6 @@ def index():
     finally:
         db.close()
 
-<<<<<<< HEAD
-@app.route('/event/query', methods=['POST'])
-=======
 @app.route('/location/query', methods=['POST'])
 def get_location_details():
     id = request.json['id']
@@ -37,11 +34,10 @@ def get_location_details():
     query_data = db.location_query(id)
     db.close()
     return jsonify(longitude=query_data[1],latitude=query_data[2])
->>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 
 
 @app.route('/add/event', methods=['POST'])
-def addevent():
+def add_event():
     name = request.json['Name']
     area = request.json['Area']
     date = request.json['DateTime']
@@ -65,4 +61,4 @@ def js_static(filename):
     return send_from_directory(app.root_path + '/static/js/', filename)
 
 if __name__ == '__main__':
-    app.run()
+    app.run() 

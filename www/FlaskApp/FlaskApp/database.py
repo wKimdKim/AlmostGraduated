@@ -56,29 +56,22 @@ class db:
 
 	def event_lookup(self, id):
 		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
-<<<<<<< HEAD
-=======
 
 	def location_query(self, id):
 		return self.cursor.execute("SELECT Name, Longitude, Latitude FROM StudyArea WHERE ID=?",(id,)).fetchone()
 
 	def get_study_areas(self):
 		return self.cursor.execute("SELECT Name FROM StudyArea").fetchall()
->>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 	
 
 	def close(self):
 		self.cursor.close()
-		self.conn.close() 
+		self.conn.close()  
 
 # Time example 2018-05-29T13:03
 # d = db('StudyGroups.db')
-<<<<<<< HEAD
-
-=======
 # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
 # # # print(d.location_query(1))
->>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 # data = d.get_all_events()
 # d.close()
 
