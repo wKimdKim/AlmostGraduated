@@ -20,7 +20,8 @@ def index():
         lookup = db.event_lookup
         Events = db.get_all_events()
         Length = len(Events)
-        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup)
+        options = db.get_study_areas()
+        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options)
     except Exception as e:
         print(str(e))
     finally:
@@ -31,6 +32,7 @@ def get_location_details():
     id = request.json['id']
     db = database.db('StudyGroups.db')
     query_data = db.location_query(id)
+    db.close()
     return jsonify(longitude=query_data[1],latitude=query_data[2])
 
 
@@ -52,7 +54,7 @@ def css_static(filename):
 
 @app.route('/favicon.ico')
 def favicon():
-    send_from_directory(app.root_path + '/static/favicon.ico')
+    return send_from_directory(app.root_path + '/static','favicon.ico')
 
 @app.route('/js/<path:filename>')
 def js_static(filename):

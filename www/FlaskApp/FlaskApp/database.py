@@ -46,6 +46,9 @@ class db:
 
 	def location_query(self, id):
 		return self.cursor.execute("SELECT Name, Longitude, Latitude FROM StudyArea WHERE ID=?",(id,)).fetchone()
+
+	def get_study_areas(self):
+		return self.cursor.execute("SELECT Name FROM StudyArea").fetchall()
 	
 
 	def close(self):
