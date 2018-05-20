@@ -16,6 +16,28 @@ class db:
 			users.append(self.cursor.execute("SELECT Name FROM User WHERE ID=?",(i,)).fetchall()[0][0])
 		return users
 
+	def add_user(self, name):
+		id = self.cursor.execute("SELECT ID FROM User WHERE Name=?",(name,)).fetchone()
+
+		if id != None:
+			return id[0]
+		else:
+
+			try:
+				id = self.cursor.execute("SELECT rowid FROM User ORDER BY rowid DESC").fetchone()[0]+1
+			except TypeError:
+				id = 0
+
+
+		self.cursor.execute("INSERT INTO User VALUES (?,?)",(id,name))
+		self.conn.commit()
+		return id
+ 
+		
+
+
+		
+
 	def get_all_events(self):
 		data = self.cursor.execute("SELECT * FROM Event").fetchall()
 		data.sort(key=lambda tup: datetime.strptime(tup[3],'%d %b'))
@@ -32,7 +54,7 @@ class db:
 
 		return new_data
 
-	def add_event(self, name, area, datetime, email, description):
+	def add_event(self, eventname, name, area, datetime, email, description):
 		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 		try:
 			id = self.cursor.execute("SELECT rowid FROM Event ORDER BY rowid DESC").fetchone()[0]+1
@@ -43,9 +65,13 @@ class db:
 			self.add_custom_study_area(name, area)
 			area = name
 
+		email = str([self.add_user(name)])
+
 		time = datetime[11:]
 		date = datetime[8:10]+' '+months[int(datetime[5:7])]
 		area = self.cursor.execute("SELECT ID from StudyArea WHERE Name=?",(area,)).fetchone()[0]
+
+
 
 		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?,?)",(id,name,time,date,email,area,'Description'))
 		self.conn.commit()
@@ -75,7 +101,9 @@ class db:
 		self.conn.close()  
 
 # Time example 2018-05-29T13:03
-# d = db('StudyGroups.db')
+d = db('StudyGroups.db')
+print(d.add_user('Bradye'))
+d.close()
 # # # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
 # # # # # print(d.location_query(1))
 # data = d.get_all_events()
