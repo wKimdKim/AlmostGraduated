@@ -21,7 +21,8 @@ def index():
         Events = db.get_all_events()
         Length = len(Events)
         options = db.get_study_areas()
-        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options[0:9])
+        userslookup = db.get_user
+        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options[0:9], userslookup=userslookup)
     except Exception as e:
         print(str(e))
     finally:
@@ -38,13 +39,13 @@ def get_location_details():
 
 @app.route('/add/event', methods=['POST'])
 def add_event():
-    name = request.json['Name']
+    EventNames = request.json['EventName']
     area = request.json['Area']
     date = request.json['DateTime']
     email = request.json['Email']
     description = request.json['Description']
     db = database.db('StudyGroups.db')
-    db.add_event(name,area,date,email,description)
+    db.add_event(EventNames,area,date,email,description)
     db.close()
     return '200'
 
