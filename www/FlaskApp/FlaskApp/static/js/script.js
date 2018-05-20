@@ -2,6 +2,7 @@
 var marker;
 var latitude;
 var longitude;
+var Areas = ["OGGB Upstairs", "OGGB Downstairs", "Computer Science Ground Labs", "GenLib"];
 
 /*Creates the google map. Added a listener so when user click on the map, marker is placed.
 Saves the marker's latitude and longitude*/
@@ -48,25 +49,50 @@ function myMap() {
 
 function Create_event() {
   var Name = $("#name").val();
-  var Area = $("#area").val();
+  console.log(Name);
+  var Area = $("#exampleFormControlSelect1").val();
+  console.log(Area);
   var DateTime = $("#datetime-local").val();
   console.log(DateTime);
-  var lat = latitude;
-  var long = longitude;
-
-  $.ajax({
-    url: '/add/event',
-    contentType: 'application/json',
-    type: 'POST',
-    data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude': lat, 'Longitude': long}),
-    success: function(response){
-      alert(response)
-      console.log(response);
-      },
-    error: function(response){
-      alert(response)
-      }
-  });
+  // console.log(lat);
+  // console.log(long);
+  // console.log(longitude);
+  // console.log(latitude);
+  if (Area === "Other"){
+    if (lat == null || long == null){
+      alert("Please choose a location on the map");
+    }
+    else{
+      var lat = latitude;
+      var long = longitude;
+      $.ajax({
+        url: '/add/event',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude':lat, 'Longitude':long}),
+        success: function(response){
+          alert(response)
+          },
+        error: function(response){
+          alert(response)
+          }
+      });
+    }
+    else{
+      $.ajax({
+        url: '/add/event',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude':lat, 'Longitude':long}),
+        success: function(response){
+          alert(response);
+          },
+        error: function(response){
+          alert(response);
+          }
+      });
+    }
+  }
 }
 
 function moreEventDetails() {

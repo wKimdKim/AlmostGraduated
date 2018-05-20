@@ -26,38 +26,59 @@ class db:
 
 		return new_data
 
-	def add_event(self, name, area, date, Long, Lat):
+	def add_event(self, name, area, datetime, email, description):
+		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 		try:
 			id = self.cursor.execute("SELECT rowid FROM Event ORDER BY rowid DESC").fetchone()[0]+1
 		except TypeError:
 			id = 0
 
-		location = self.add_StudyArea(name,'No Description Avaliable',Long,Lat)
+		if type(area) == list:
+			self.add_custom_study_area(name, area)
+			area = name
 
-		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?)",(id,name,datetime,datetime,'[0]',location))
+		time = datetime[11:]
+		date = datetime[8:10]+' '+months[int(datetime[5:7])]
+		area = self.cursor.execute("SELECT ID from StudyArea WHERE Name=?",(area,)).fetchone()[0]
+
+		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?,?)",(id,name,time,date,email,area,'Description'))
 		self.conn.commit()
 
-	def add_StudyArea(self, name, description, Long, Lat):
+	def add_custom_study_area(self, name, area):
 		try:
 			id = self.cursor.execute("SELECT rowid FROM StudyArea ORDER BY rowid DESC").fetchone()[0]+1
 		except TypeError:
 			id = 0
 
-		self.cursor.execute("INSERT INTO StudyArea VALUES(?,?,?,?,?)",(id, name, description, Long, Lat))
+		self.cursor.execute("INSERT INTO StudyArea VALUES (?,?,?,?)",(id,name,area[0],area[1]))
 		self.conn.commit()
-		return id 
+
 
 	def event_lookup(self, id):
 		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
+<<<<<<< HEAD
+=======
+
+	def location_query(self, id):
+		return self.cursor.execute("SELECT Name, Longitude, Latitude FROM StudyArea WHERE ID=?",(id,)).fetchone()
+
+	def get_study_areas(self):
+		return self.cursor.execute("SELECT Name FROM StudyArea").fetchall()
+>>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 	
 
 	def close(self):
 		self.cursor.close()
 		self.conn.close() 
 
-
+# Time example 2018-05-29T13:03
 # d = db('StudyGroups.db')
+<<<<<<< HEAD
 
+=======
+# d.add_event('Brady','Computer Science Ground Lab',5,'51','')
+# # # print(d.location_query(1))
+>>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 # data = d.get_all_events()
 # d.close()
 

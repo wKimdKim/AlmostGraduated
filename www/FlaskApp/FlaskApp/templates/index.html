@@ -22,12 +22,13 @@
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
             integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
             crossorigin="anonymous"></script>
+
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
             integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
             crossorigin="anonymous"></script>
     <title></title>
 </head>
-<body style="background: #f4f4f4">
+<body style="background: #F7F7F9">
 <div class="left-container">
     <div class="card">
         <h2 class="card-header" style="alignment: center">Almost<span class="highlight">Graduated</span></h2>
@@ -41,13 +42,52 @@
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                             aria-controls="collapseOne">
-                        <h6>Create Event</h6>
+                        <h6>View Event</h6>
                     </button>
                 </h5>
             </div>
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body" style="padding-bottom: 90px; background: #F7F7F9">
+                    {% for i in range(lenght) %}
+
+                    <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
+                    {% for event in Events[i] %}
+                    <div class="card" onclick="get_marker({{event[0]}})" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{event[1]}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
+                            <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
+                                be here for a few hours. I'll be wearing the red cap.</p>
+                            <button type="button" class="btn btn-primary btn-raised btn-sm" data-target="#eventRegisterModal" data-toggle="modal">Join Event</button>
+                            <!--<a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join-->
+                            <!--Event</a>-->
+                            <div class="card-footer text-muted text-center">
+                                {{lookup(event[5])}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                        <h6>Create Event</h6>
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
+                    <div>
+                        <label for="eventName" class="bmd-label-floating">Event Name</label>
+                        <input type="text" class="form-control" id="eventName">
+                    </div>
+
                     <div>
                         <label for="name" class="bmd-label-floating">Name</label>
                         <input type="text" class="form-control" id="name">
@@ -58,23 +98,15 @@
                     </div>
                     <!--Future feature? Filtering-->
                     <!--<div>-->
-                        <!--<label for="course" class="bmd-label-floating">Course</label>-->
-                        <!--<input type="course" class="form-control" id="course">-->
+                    <!--<label for="course" class="bmd-label-floating">Course</label>-->
+                    <!--<input type="course" class="form-control" id="course">-->
                     <!--</div>-->
 
-
-                    <!--<div>-->
-                    <!--<label for="area" class="heading">Area</label>-->
-                    <!--<input type="area" class="form-control" id="area" placeholder="Enter area">-->
-                    <!--</div>-->
                     <label for="exampleFormControlSelect1" class="bmd-label-floating">Area</label>
                     <select class="form-control" id="exampleFormControlSelect1">
-                        <option>OGGB Upstairs</option>
-                        <option>OGGB Downstairs</option>
-                        <option>Computer Science Ground Labs</option>
-                        <option>ICO</option>
-                        <option>GenLib</option>
-                        <option>Other</option>
+                        {% for option in options %}
+                        <option>{{ option[0] }}</option>
+                        {% endfor %}
                     </select>
 
                     <div>
@@ -87,6 +119,7 @@
                     </form>
                     <button type="button" onclick="Create_event()" class="btn btn-primary btn-raised">Submit</button>
                 </div>
+
             </div>
         </div>
         <div class="card">
@@ -104,12 +137,15 @@
 
                     <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
                     {% for event in Events[i] %}
+                    
                     <div class="card" onclick="get_market({{event[0]}})" style="width: 18rem;">
+
                         <div class="card-body">
                             <h5 class="card-title">{{event[1]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
                             <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
                                 be here for a few hours. I'll be wearing the red cap.</p>
+
 
                             <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
                                 Event</a>
@@ -117,6 +153,7 @@
                                 {{lookup(event[5])}}
                             </div>
                         </div>
+                        </a>
                     </div>
                     {% endfor %}
                     {% endfor %}
@@ -125,18 +162,18 @@
             </div>
         </div>
         <div class="card">
-          <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                <h6>Contact Us</h6>
-              </button>
-            </h5>
-          </div>
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                            aria-expanded="false" aria-controls="collapseThree">
+                        <h6>Contact Us</h6>
+                    </button>
+                </h5>
+            </div>
         </div>
-        <!--<div class="card" style="position: absolute; bottom: 0; width: 25vw; height: 7vh;">
-            <h5 class="card-header">Contact Us</h5>
-        </div>-->
+        <!--<div class="card" style="position: absolute; bottom: 0; width: 25vw; height: 7vh;">-->
+        <!--<h5 class="card-header">Contact Us</h5>-->
+        <!--</div>-->
     </div>
 </div>
 <div class="modal fade" id="eventRegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -155,8 +192,8 @@
                     <input type="text" class="form-control" id="nameModal">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="bmd-label-floating">Email</label>
-                    <input type="email" class="form-control" id="email">
+                    <label for="registerEmail" class="bmd-label-floating">Email</label>
+                    <input type="email" class="form-control" id="registerEmail">
                 </div>
             </div>
             <div class="modal-footer">

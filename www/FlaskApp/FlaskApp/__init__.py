@@ -20,13 +20,24 @@ def index():
         lookup = db.event_lookup
         Events = db.get_all_events()
         Length = len(Events)
-        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup)
+        options = db.get_study_areas()
+        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options[0:9])
     except Exception as e:
         print(str(e))
     finally:
         db.close()
 
+<<<<<<< HEAD
 @app.route('/event/query', methods=['POST'])
+=======
+@app.route('/location/query', methods=['POST'])
+def get_location_details():
+    id = request.json['id']
+    db = database.db('StudyGroups.db')
+    query_data = db.location_query(id)
+    db.close()
+    return jsonify(longitude=query_data[1],latitude=query_data[2])
+>>>>>>> 3f1263a4d11fc45c4ecbeb0d3f567f2842fc18cd
 
 
 @app.route('/add/event', methods=['POST'])
@@ -34,21 +45,24 @@ def addevent():
     name = request.json['Name']
     area = request.json['Area']
     date = request.json['DateTime']
-    Lat = request.json['Latitude']
-    Long = request.json['Longitude']
+    email = request.json['Email']
+    description = request.json['Description']
     db = database.db('StudyGroups.db')
-    db.add_event(name, area, date, Long, Lat)
+    db.add_event(name,area,date,email,description)
     db.close()
-    return 'Success'
+    return '200'
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
     return send_from_directory(app.root_path + '/static/css/', filename)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(app.root_path + '/static','favicon.ico')
+
 @app.route('/js/<path:filename>')
 def js_static(filename):
     return send_from_directory(app.root_path + '/static/js/', filename)
-
 
 if __name__ == '__main__':
     app.run()
