@@ -63,7 +63,7 @@ class db:
 		email = str([self.add_user(name)])
 
 		time = datetime[11:]
-		date = datetime[8:10]+' '+months[int(datetime[5:7])]
+		date = datetime[8:10]+' '+months[int(datetime[5:7])-1]
 		area = self.cursor.execute("SELECT ID from StudyArea WHERE Name=?",(area,)).fetchone()[0]
 
 
@@ -104,23 +104,3 @@ class db:
 		self.cursor.close()
 		self.conn.close()  
 
-# Time example 2018-05-29T13:03
-# d = db('StudyGroups.db')
-# d.join_event('1','YOOO')
-# d.close()
-# print(d.add_user('Bradye'))
-# d.close()
-# # # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
-# # # # # print(d.location_query(1))
-# data = d.get_all_events()
-# # # d.close()
-
-# # # print(data[0][0][3])
-# # decoder = json.JSONDecoder()
-# # print(decoder.decode(data[0][0][4]))
-# print(data[0][0][4])
-# print(type(data[0][0][4]))
-
-# d = d.get_user(data[0][0][4])
-
-# print(d)
