@@ -61,7 +61,7 @@
                             <p class="card-text">{{event[6]}}</p>
                             <p class="card-text">Created By: {{userslookup(event[4])[0]}}</p>
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="join_event({{event[0]}})">
                                     Attending
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
