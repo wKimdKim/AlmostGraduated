@@ -33,11 +33,24 @@ class db:
 		except TypeError:
 			id = 0
 
+		if type(area) == list:
+			self.add_custom_study_area(name, area)
+			area = name
+
 		time = datetime[11:]
 		date = datetime[8:10]+' '+months[int(datetime[5:7])]
 		area = self.cursor.execute("SELECT ID from StudyArea WHERE Name=?",(area,)).fetchone()[0]
 
-		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?)",(id,name,time,date,email,area))
+		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?,?)",(id,name,time,date,email,area,'Description'))
+		self.conn.commit()
+
+	def add_custom_study_area(self, name, area):
+		try:
+			id = self.cursor.execute("SELECT rowid FROM StudyArea ORDER BY rowid DESC").fetchone()[0]+1
+		except TypeError:
+			id = 0
+
+		self.cursor.execute("INSERT INTO StudyArea VALUES (?,?,?,?)",(id,name,area[0],area[1]))
 		self.conn.commit()
 
 
