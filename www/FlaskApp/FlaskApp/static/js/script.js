@@ -1,7 +1,7 @@
 /*Global Variables*/
 var marker;
-var latitude;
-var longitude;
+let latitude;
+let longitude;
 
 /*Creates the google map. Added a listener so when user click on the map, marker is placed.
 Saves the marker's latitude and longitude*/
@@ -53,10 +53,10 @@ function Create_event() {
   console.log(Area);
   var DateTime = $("#datetime-local").val();
   console.log(DateTime);
-  var lat = latitude;
-  var long = longitude;
-  console.log(lat);
-  console.log(long);
+  // lat = latitude;
+  // long = longitude;
+  // console.log(lat);
+  // console.log(long);
   console.log(longitude);
   console.log(latitude);
 
