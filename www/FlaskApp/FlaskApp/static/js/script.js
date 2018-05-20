@@ -146,18 +146,37 @@ function moreEventDetails() {
 }
 
 
-function get_marker(id) {
-    $.ajax({
-        url: '/location/query',
-        contentType: 'application/json',
-        type: 'POST',
-        data: JSON.stringify({'id': id}),
-        success: function (response) {
-            console.log(response['latitude']);
-            console.log(response['longitude']);
-        },
-        error: function (response) {
-            alert(response)
-        }
+function get_marker(id){
+  $.ajax({
+    url: '/location/query',
+    contentType: 'application/json',
+    type: 'POST',
+    data: JSON.stringify({'id':id}),
+    success: function (response) {
+      var latitude = response['longitude'];
+      var longitude = response['latitude'];
+      var numLat = parseFloat(latitude);
+      var numLng = parseFloat(longitude);
+
+      var latLng = new google.maps.LatLng(numLat, numLng);
+      var mapOptions = {
+          zoom: 18,
+          center: latLng
+      }
+
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  var eventMarker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      title: 'Event Location'
+  });
+  eventMarker.setMap(map);
+      },
+    error: function(response){
+        alert(response);
+      }
     });
-} 
+
+
+}
