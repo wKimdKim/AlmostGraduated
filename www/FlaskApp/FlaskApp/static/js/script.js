@@ -103,6 +103,11 @@ function Create_event() {
         alert('Select a location');
     }
 
+    if (Area=='Other')
+    {
+        Area = [latitude,longitude];
+    }
+
     if (Name == '' || DateTime == '') {
         alert("Please enter a Name and Time");
         return;
