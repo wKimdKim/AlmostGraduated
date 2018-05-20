@@ -53,13 +53,15 @@
 
                     <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
                     {% for event in Events[i] %}
-                    <div class="card" onclick="get_marker({{event[0]}})" style="width: 18rem;">
+                    <div class="card" onclick="get_marker({{event[5]}})" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{event[1]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
                             <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
                                 be here for a few hours. I'll be wearing the red cap.</p>
-                            <button type="button" class="btn btn-primary btn-raised btn-sm" data-target="#eventRegisterModal" data-toggle="modal">Join Event</button>
+                            <button type="button" class="btn btn-primary btn-raised btn-sm"
+                                    data-target="#eventRegisterModal" data-toggle="modal">Join Event
+                            </button>
                             <!--<a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join-->
                             <!--Event</a>-->
                             <div class="card-footer text-muted text-center">
@@ -120,43 +122,6 @@
                     <button type="button" onclick="Create_event()" class="btn btn-primary btn-raised">Submit</button>
                 </div>
 
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="false" aria-controls="collapseTwo">
-                        <h6>View Event</h6>
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body" style="padding-bottom: 90px">
-                    {% for i in range(lenght) %}
-
-                    <h3 class="eventHeader">{{Events[i][0][3]}}</h3>
-                    {% for event in Events[i] %}
-                    <div class="card" onclick="get_marker({{event[5]}})" style="width: 18rem;"  >
-                        <div class="card-body">
-                            <h5 class="card-title">{{event[1]}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
-                            <p class="card-text">Let's smash out a few hours of past papers and see how we get on. Will
-                                be here for a few hours. I'll be wearing the red cap.</p>
-
-
-                            <a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join
-                                Event</a>
-                            <div class="card-footer text-muted text-center">
-                                {{lookup(event[5])}}
-                            </div>
-                        </div>
-                        </a>
-                    </div>
-                    {% endfor %}
-                    {% endfor %}
-
-                </div>
             </div>
         </div>
         <div class="card">
