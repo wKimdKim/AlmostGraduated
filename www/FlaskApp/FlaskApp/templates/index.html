@@ -58,6 +58,11 @@
                             <h5 class="card-title">{{event[1]}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{event[2]}}</h6>
                             <p class="card-text">{{event[6]}}</p>
+                            <p class="card-text">Created By: {{ userslookup(event[4])[0] }}</p>
+                            <p>Attending:</p>
+                            {% for atendee in userslookup(event[4])[1:] %}
+                            <p class="card-text">-{{atendee}}</p>
+                            {% endfor %}
                             <button type="button" class="btn btn-primary btn-raised btn-sm" data-target="#eventRegisterModal" data-toggle="modal">Join Event</button>
                             <!--<a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join-->
                             <!--Event</a>-->
