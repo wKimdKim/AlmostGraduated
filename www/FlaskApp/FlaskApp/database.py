@@ -68,7 +68,7 @@ class db:
 
 
 
-		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?,?)",(id,name,time,date,email,area,'Description'))
+		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?,?)",(id,eventname,time,date,email,area,'Description'))
 		self.conn.commit()
 
 	def add_custom_study_area(self, name, area):
