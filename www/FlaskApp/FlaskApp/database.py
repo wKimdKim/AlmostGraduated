@@ -9,7 +9,12 @@ class db:
 		self.cursor = self.conn.cursor()
 
 	def get_user(self, id):
-		data = self.cursor.execute("SELECT Name,CourseList FROM User WHERE ID=?",(id,)).fetchall()[0]
+		decoder = json.JSONDecoder()
+		id = decoder.decode(id)
+		users = []
+		for i in id:
+			users.append(self.cursor.execute("SELECT Name FROM User WHERE ID=?",(i,)).fetchall()[0][0])
+		return users
 
 	def get_all_events(self):
 		data = self.cursor.execute("SELECT * FROM Event").fetchall()
@@ -46,7 +51,6 @@ class db:
 		self.conn.commit()
 
 	def add_custom_study_area(self, name, area):
-		print('AREA HERE IS ',area)
 		try:
 			id = self.cursor.execute("SELECT rowid FROM StudyArea ORDER BY rowid DESC").fetchone()[0]+1
 		except TypeError:
@@ -71,11 +75,18 @@ class db:
 		self.conn.close()  
 
 # Time example 2018-05-29T13:03
-d = db('StudyGroups.db')
-# d.add_event('Brady','Computer Science Ground Lab',5,'51','')
-# # # print(d.location_query(1))
-data = d.get_all_events()
-# d.close()
+# d = db('StudyGroups.db')
+# # # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
+# # # # # print(d.location_query(1))
+# data = d.get_all_events()
+# # # d.close()
 
-# print(data[0][0][3])
-print(data[0][0][4])
+# # # print(data[0][0][3])
+# # decoder = json.JSONDecoder()
+# # print(decoder.decode(data[0][0][4]))
+# print(data[0][0][4])
+# print(type(data[0][0][4]))
+
+# d = d.get_user(data[0][0][4])
+
+# print(d)

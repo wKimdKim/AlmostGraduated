@@ -61,6 +61,13 @@
                             <button type="button" class="btn btn-primary btn-raised btn-sm"
                                     data-target="#eventRegisterModal" data-toggle="modal">Join Event
                             </button>
+                            <p class="card-text">{{event[6]}}</p>
+                            <p class="card-text">Created By: {{ userslookup(event[4])[0] }}</p>
+                            <p>Attending:</p>
+                            {% for atendee in userslookup(event[4])[1:] %}
+                            <p class="card-text">-{{atendee}}</p>
+                            {% endfor %}
+                            <button type="button" class="btn btn-primary btn-raised btn-sm" data-target="#eventRegisterModal" data-toggle="modal">Join Event</button>
                             <!--<a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join-->
                             <!--Event</a>-->
                             <div class="card-footer text-muted text-center">
@@ -143,7 +150,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Event Name</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
