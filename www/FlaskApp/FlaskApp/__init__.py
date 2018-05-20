@@ -50,7 +50,7 @@ def add_event():
     db.close()
     return '200'
 
-@app.route('join/event',methods=['POST'])
+@app.route('/join/event',methods=['POST'])
 def join_event():
     pass
 

@@ -91,6 +91,8 @@ function showModal(message) {
 
 }
 
+function join_event(id)
+
 function Create_event() {
     var Name = $("#name").val();
     var Area = $("#exampleFormControlSelect1").val();

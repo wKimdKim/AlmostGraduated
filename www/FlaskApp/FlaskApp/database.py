@@ -101,9 +101,9 @@ class db:
 		self.conn.close()  
 
 # Time example 2018-05-29T13:03
-d = db('StudyGroups.db')
-print(d.add_user('Bradye'))
-d.close()
+# d = db('StudyGroups.db')
+# print(d.add_user('Bradye'))
+# d.close()
 # # # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
 # # # # # print(d.location_query(1))
 # data = d.get_all_events()
