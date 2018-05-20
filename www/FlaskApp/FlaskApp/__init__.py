@@ -52,7 +52,12 @@ def add_event():
 
 @app.route('/join/event',methods=['POST'])
 def join_event():
-    pass
+    username = requests.json['user']
+    eventid = requests.json['eventID']  
+    db = database.db('StudyGroups.db')
+    db.join_event(eventid,name)
+    db.close()
+    return '200'
 
 @app.route('/css/<path:filename>')
 def css_static(filename):

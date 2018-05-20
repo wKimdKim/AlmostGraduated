@@ -32,11 +32,6 @@ class db:
 		self.cursor.execute("INSERT INTO User VALUES (?,?)",(id,name))
 		self.conn.commit()
 		return id
- 
-		
-
-
-		
 
 	def get_all_events(self):
 		data = self.cursor.execute("SELECT * FROM Event").fetchall()
@@ -94,6 +89,15 @@ class db:
 
 	def get_study_areas(self):
 		return self.cursor.execute("SELECT Name FROM StudyArea").fetchall()
+
+	def join_event(self, eventid, username):
+		username = self.add_user(username)
+		current_users = self.cursor.execute("SELECT Users FROM Event WHERE ID=?",(eventid,)).fetchall()[0][0]
+		decoder = json.JSONDecoder()
+		current_users = decoder.decode(current_users)
+		current_users.append(username)
+		self.cursor.execute('UPDATE Event SET Users=? WHERE _rowid_=?',(str(current_users),eventid))
+		self.conn.commit()
 	
 
 	def close(self):
@@ -102,6 +106,8 @@ class db:
 
 # Time example 2018-05-29T13:03
 # d = db('StudyGroups.db')
+# d.join_event('1','YOOO')
+# d.close()
 # print(d.add_user('Bradye'))
 # d.close()
 # # # d.add_event('Brady','Computer Science Ground Lab',5,'51','')
