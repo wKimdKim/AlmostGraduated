@@ -26,26 +26,20 @@ class db:
 
 		return new_data
 
-	def add_event(self, name, area, date, Long, Lat):
+	def add_event(self, name, area, datetime, email, description):
+		months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 		try:
 			id = self.cursor.execute("SELECT rowid FROM Event ORDER BY rowid DESC").fetchone()[0]+1
 		except TypeError:
 			id = 0
 
-		location = self.add_StudyArea(name,'No Description Avaliable',Long,Lat)
+		time = datetime[11:]
+		date = datetime[8:10]+' '+months[int(datetime[5:7])]
+		area = self.cursor.execute("SELECT ID from StudyArea WHERE Name=?",(area,)).fetchone()[0]
 
-		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?)",(id,name,datetime,datetime,'[0]',location))
+		self.cursor.execute("INSERT INTO Event VALUES(?,?,?,?,?,?)",(id,name,time,date,email,area))
 		self.conn.commit()
 
-	def add_StudyArea(self, name, description, Long, Lat):
-		try:
-			id = self.cursor.execute("SELECT rowid FROM StudyArea ORDER BY rowid DESC").fetchone()[0]+1
-		except TypeError:
-			id = 0
-
-		self.cursor.execute("INSERT INTO StudyArea VALUES(?,?,?,?,?)",(id, name, description, Long, Lat))
-		self.conn.commit()
-		return id 
 
 	def event_lookup(self, id):
 		return self.cursor.execute("SELECT Name FROM StudyArea WHERE ID=?",(id,)).fetchone()[0]
@@ -58,9 +52,10 @@ class db:
 		self.cursor.close()
 		self.conn.close()  
 
-
+# Time example 2018-05-29T13:03
 # d = db('StudyGroups.db')
-# print(d.location_query(1))
+# d.add_event('Brady','Computer Science Ground Lab',5,'51','')
+# # # print(d.location_query(1))
 # data = d.get_all_events()
 # d.close()
 

@@ -39,21 +39,24 @@ def add_event():
     name = request.json['Name']
     area = request.json['Area']
     date = request.json['DateTime']
-    Lat = request.json['Latitude']
-    Long = request.json['Longitude']
+    email = request.json['Email']
+    description = request.json['Description']
     db = database.db('StudyGroups.db')
-    db.add_event(name, area, date, Long, Lat)
+    db.add_event(name,area,date,email,description)
     db.close()
-    return 'Success'
+    return '200'
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
     return send_from_directory(app.root_path + '/static/css/', filename)
 
+@app.route('/favicon.ico')
+def favicon():
+    send_from_directory(app.root_path + '/static/favicon.ico')
+
 @app.route('/js/<path:filename>')
 def js_static(filename):
     return send_from_directory(app.root_path + '/static/js/', filename)
-
 
 if __name__ == '__main__':
     app.run() 

@@ -48,25 +48,31 @@ function myMap() {
 
 function Create_event() {
   var Name = $("#name").val();
-  console.log(Name);
   var Area = $("#exampleFormControlSelect1").val();
-  console.log(Area);
   var DateTime = $("#datetime-local").val();
-  console.log(DateTime);
-  var lat = latitude;
-  var long = longitude;
-  console.log(lat);
-  console.log(long);
-  console.log(longitude);
-  console.log(latitude);
+  
+  
+  if(Area=='Other' && latitude!='' && longitude!='')
+  {
+    alert('Select a location');
+    return;
+  }
+
+  if(Name=='' || DateTime=='')
+  {
+    alert("Please enter a Name and Time");
+    return;
+  }
+
+  var email = $('#email').val();
+  var description = $('#description').val()
 
   $.ajax({
     url: '/add/event',
     contentType: 'application/json',
     type: 'POST',
-    data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Latitude': lat, 'Longitude': long}),
+    data: JSON.stringify({'Name':Name,'Area':Area,'DateTime':DateTime, 'Email': email, 'Description': description}),
     success: function(response){
-      alert(response)
       console.log(response);
       },
     error: function(response){
