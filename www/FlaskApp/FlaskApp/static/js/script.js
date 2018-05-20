@@ -95,6 +95,7 @@ function Create_event() {
     var Name = $("#name").val();
     var Area = $("#exampleFormControlSelect1").val();
     var DateTime = $("#datetime-local").val();
+    var EventName = $("#eventName").val();
 
 
     if (Area == 'Other' && latitude == '' && longitude == '') {
@@ -124,7 +125,8 @@ function Create_event() {
             'Area': Area,
             'DateTime': DateTime,
             'Email': email,
-            'Description': description
+            'Description': description,
+            'EventName': EventName
         }),
         success: function (response) {
             console.log(response);
