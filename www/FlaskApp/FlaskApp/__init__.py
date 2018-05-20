@@ -57,7 +57,7 @@ def join_event():
     db = database.db('StudyGroups.db')
     db.join_event(eventid,name)
     db.close()
-    return '200'
+    return '200' 
 
 @app.route('/css/<path:filename>')
 def css_static(filename):

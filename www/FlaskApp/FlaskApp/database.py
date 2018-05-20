@@ -91,7 +91,7 @@ class db:
 		return self.cursor.execute("SELECT Name FROM StudyArea").fetchall()
 
 	def join_event(self, eventid, username):
-		username = self.add_user(username)
+		username = self.add_user(username) 
 		current_users = self.cursor.execute("SELECT Users FROM Event WHERE ID=?",(eventid,)).fetchall()[0][0]
 		decoder = json.JSONDecoder()
 		current_users = decoder.decode(current_users)
