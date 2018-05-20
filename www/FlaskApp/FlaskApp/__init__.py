@@ -22,7 +22,7 @@ def index():
         Length = len(Events)
         options = db.get_study_areas()
         userslookup = db.get_user
-        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options[0:9], userslookup=userslookup)
+        return render_template('index.html',lenght=Length, Events=Events, lookup=lookup, options=options[0:10], userslookup=userslookup)
     except Exception as e:
         print(str(e))
     finally:
