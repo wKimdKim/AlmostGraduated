@@ -40,14 +40,19 @@ def get_location_details():
 @app.route('/add/event', methods=['POST'])
 def add_event():
     EventNames = request.json['EventName']
+    name = request.json['Name']
     area = request.json['Area']
     date = request.json['DateTime']
     email = request.json['Email']
     description = request.json['Description']
     db = database.db('StudyGroups.db')
-    db.add_event(EventNames,area,date,email,description)
+    db.add_event(EventNames,name,area,date,email,description)
     db.close()
     return '200'
+
+@app.route('/join/event',methods=['POST'])
+def join_event():
+    pass
 
 @app.route('/css/<path:filename>')
 def css_static(filename):
