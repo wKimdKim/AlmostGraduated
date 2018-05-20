@@ -103,9 +103,8 @@ function Create_event() {
         alert('Select a location');
     }
 
-    if (Area=='Other')
-    {
-        Area = [latitude,longitude];
+    if (Area == 'Other') {
+        Area = [latitude, longitude];
     }
 
     if (Name == '' || DateTime == '') {
@@ -147,82 +146,84 @@ function moreEventDetails() {
 }
 
 
+
+
 function get_marker(id) {
     console.log(JSON.stringify({'id': id}));
     $.ajax({
-            url: '/location/query',
-            contentType: 'application/json',
-            type: 'POST',
-            data: JSON.stringify({'id': id}),
-            success: function (response) {
-                var latitude = response['longitude'];
-                var longitude = response['latitude'];
-                var numLat = parseFloat(latitude);
-                var numLng = parseFloat(longitude);
+        url: '/location/query',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify({'id': id}),
+        success: function (response) {
+            var latitude = response['longitude'];
+            var longitude = response['latitude'];
+            var numLat = parseFloat(latitude);
+            var numLng = parseFloat(longitude);
 
-                var latLng = new google.maps.LatLng(numLat, numLng);
-                var mapOptions = {
-                    zoom: 18,
-                    center: latLng,
-                    styles: [{
-                        "featureType": "administrative",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "off"}]
-                    }, {
-                        "featureType": "landscape",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "simplified"}, {"hue": "#0066ff"}, {"saturation": 74}, {"lightness": 100}]
-                    }, {
-                        "featureType": "poi",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "simplified"}]
-                    }, {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "simplified"}]
-                    }, {
-                        "featureType": "road.highway",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "off"}, {"weight": 0.6}, {"saturation": -85}, {"lightness": 61}]
-                    }, {
-                        "featureType": "road.highway",
-                        "elementType": "geometry",
-                        "stylers": [{"visibility": "on"}]
-                    }, {
-                        "featureType": "road.arterial",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "off"}]
-                    }, {
-                        "featureType": "road.local",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "on"}]
-                    }, {
-                        "featureType": "transit",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "simplified"}]
-                    }, {
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [{"visibility": "simplified"}, {"color": "#5f94ff"}, {"lightness": 26}, {"gamma": 5.86}]
-                    }]
+            var latLng = new google.maps.LatLng(numLat, numLng);
+            var mapOptions = {
+                zoom: 18,
+                center: latLng,
+                styles: [{
+                    "featureType": "administrative",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "landscape",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}, {"hue": "#0066ff"}, {"saturation": 74}, {"lightness": 100}]
+                }, {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}]
+                }, {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}, {"weight": 0.6}, {"saturation": -85}, {"lightness": 61}]
+                }, {
+                    "featureType": "road.highway",
+                    "elementType": "geometry",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "road.arterial",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "off"}]
+                }, {
+                    "featureType": "road.local",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "on"}]
+                }, {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}]
+                }, {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [{"visibility": "simplified"}, {"color": "#5f94ff"}, {"lightness": 26}, {"gamma": 5.86}]
+                }]
 
-                };
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            };
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var eventMarker = new google.maps.Marker({
-        position: latLng,
-        map: map,
-        title: 'Event Location'
-    });
-    eventMarker.setMap(map);
-}
+            var eventMarker = new google.maps.Marker({
+                position: latLng,
+                map: map,
+                title: 'Event Location'
+            });
+            eventMarker.setMap(map);
+        }
 
-,
-error: function (response) {
-    alert(response);
-}
-})
-;
+        ,
+        error: function (response) {
+            alert(response);
+        }
+    })
+    ;
 
 
 }
