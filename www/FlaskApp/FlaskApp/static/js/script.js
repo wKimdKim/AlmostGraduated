@@ -91,14 +91,13 @@ function showModal(message) {
 
 }
 
-
 function Create_event() {
     var Name = $("#name").val();
     var Area = $("#exampleFormControlSelect1").val();
     var DateTime = $("#datetime-local").val();
 
 
-    if (Area == 'Other' && latitude != '' && longitude != '') {
+    if (Area == 'Other' && latitude == '' && longitude == '') {
 
         alert('Select a location');
     }
