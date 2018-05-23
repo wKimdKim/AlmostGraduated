@@ -61,7 +61,7 @@
                             <p class="card-text">{{event[6]}}</p>
                             <p class="card-text">Created By: {{userslookup(event[4])[0]}}</p>
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="join_event({{event[0]}})">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     Attending
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -69,7 +69,7 @@
                                     <a class="card-text">{{atendee}},</a>
                                     {% endfor %}
                                 </div>
-                                <button type="button" class="btn btn-primary btn-raised btn-sm" style="right: 5px" data-target="#eventRegisterModal" data-toggle="modal">Join Event</button>
+                                <button type="button" class="btn btn-primary btn-raised btn-sm" style="right: 5px" data-target="#eventRegisterModal" data-toggle="modal" onclick="setEventID({{event[0]}})">Join Event</button>
                             </div>
                             <!--<a href="#" class="card-link" data-toggle="modal" data-target="#eventRegisterModal">Join-->
                             <!--Event</a>-->
@@ -170,7 +170,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="join_event()">Submit</button>
             </div>
         </div>
     </div>

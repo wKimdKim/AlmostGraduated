@@ -3,6 +3,8 @@ var marker;
 var latitude;
 var longitude;
 
+var eventID;
+
 /*Creates the google map. Added a listener so when user click on the map, marker is placed.
 Saves the marker's latitude and longitude*/
 function myMap() {
@@ -87,13 +89,33 @@ function myMap() {
 //   map.panTo(latLng);
 // }
 
-function showModal(message) {
-
+function setEventID(id) {
+    eventID = id;
+    // console.log(eventID);
 }
 
-function join_event(id)
+function join_event()
 {
-   return 0; 
+    var name = $("#nameModal").val();
+    var email = $("#registerEmail").val();
+    // console.log(name+email+eventID);
+    $.ajax({
+        url: '/join/event',
+        contentType: 'application/json',
+        type: 'POST',
+        data: JSON.stringify({
+            'user': name,
+            'eventID': eventID,
+            'email': email
+        }),
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (response) {
+            alert(response)
+        }
+    });
+
 }
 
 function Create_event() {
